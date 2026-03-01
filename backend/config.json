@@ -1,0 +1,33 @@
+{
+  "prefix": "$",
+  "genChannel": "1462092643600171111",
+  "genCooldown": "2min",
+  "color": {
+    "blue": "0x57F287",
+    "yellow": "0xFEE75C",
+    "red": "0xED4245",
+    "default": "0x000000"
+  },
+  "command": {
+    "notfound_message": true,
+    "error_message": true
+  },
+  "genRole": "1462171484813398170",
+  "vanity": "Updating V2.0 – join https://discord.gg/RPkBHavyVN",
+  "banner": "https://cdn.discordapp.com/attachments/1464731351038296216/1477277528392597625/New_Project_9.png?ex=69a42d69&is=69a2dbe9&hm=c1236982b2bdb4b0476b4c975a5495801be1c64ecb222e794f38511ad95aafaa&",
+  "logo": "https://cdn.discordapp.com/attachments/1405918746777751632/1477043241252814901/New_Project_3.png",
+  "notes": "xM3Dx Support Server",
+  "helpTitle": "# Generator Features",
+  "helpDescription": "•  Gen accounts fast\n•  Offer over  +5 services\n•  Required Gen access Role to start\n•  Get the role Here: <#1462189077699760334>\n•  Feel free to add more info as needed",
+  "helpFields": [],
+  "vouchChannel": "1447010121338323105",
+  "muteRole": "1462186223186739230",
+  "logChannel": "1462186061949046995",
+  "vouchRole": "1462780567593418782",
+  "boosterRole": "YOUR_BOOSTER_ROLE_ID_HERE",
+  "welcomeChannel": "1477451678385967165",
+  "staffRole": "",
+  "ticketCategory": "",
+  "publicTermsUrl": "https://discord-bot-terms-an-9mju.bolt.host/",
+  "ownerID": "1403885140614316163"
+}

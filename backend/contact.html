@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - xM3Dx Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pjwGHjYwY+J0kjZv5qcz+r4yfMewpQpi+0qKX13f84U2qRrM+v1BvzzGCVnNU/odnUN5iPZwnVEmHnYIuN+4bg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1E1E2F;
+            color: #E0E0E0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(76, 209, 55, 0.1));
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #5865F2, #4cd137);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #A0A0A0;
+            font-size: 1.1rem;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: rgba(88, 101, 242, 0.6);
+            background: rgba(88, 101, 242, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #5865F2;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #FFF;
+        }
+
+        .contact-card p {
+            color: #A0A0A0;
+            line-height: 1.6;
+        }
+
+        .contact-card a {
+            color: #5865F2;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: #4cd137;
+        }
+
+        .status-section {
+            background: rgba(76, 209, 55, 0.1);
+            border: 2px solid rgba(76, 209, 55, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .status-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #FFF;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .status-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.online {
+            background-color: #4cd137;
+            box-shadow: 0 0 10px rgba(76, 209, 55, 0.8);
+        }
+
+        .status-dot.idle {
+            background-color: #FEE75C;
+            box-shadow: 0 0 10px rgba(254, 231, 92, 0.8);
+        }
+
+        .status-dot.dnd {
+            background-color: #ED4245;
+            box-shadow: 0 0 10px rgba(237, 66, 69, 0.8);
+        }
+
+        .status-dot.offline {
+            background-color: #747F8D;
+            box-shadow: 0 0 10px rgba(116, 127, 141, 0.8);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        .status-text {
+            color: #FFF;
+        }
+
+        .status-text.online {
+            color: #4cd137;
+        }
+
+        .status-text.idle {
+            color: #FEE75C;
+        }
+
+        .status-text.dnd {
+            color: #ED4245;
+        }
+
+        .status-text.offline {
+            color: #747F8D;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(76, 209, 55, 0.3);
+            border-top-color: #4cd137;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .nav {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(88, 101, 242, 0.2);
+        }
+
+        .nav a {
+            color: #5865F2;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #4cd137;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .error {
+            color: #ED4245;
+            text-align: center;
+            padding: 1rem;
+            background: rgba(237, 66, 69, 0.1);
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Get in Touch</h1>
+            <p>Contact us through your preferred channel</p>
+        </div>
+
+        <!-- Discord Status -->
+        <div class="status-section">
+            <h2>Discord Status</h2>
+            <p style="color: #A0A0A0; margin-bottom: 1rem;">Check if owner is online right now</p>
+            <div class="status-indicator">
+                <div class="loading" id="statusDot"></div>
+                <span class="status-text" id="statusText">Loading...</span>
+            </div>
+            <div id="errorMsg" class="error" style="display: none;"></div>
+        </div>
+
+        <!-- Contact Methods -->
+        <div class="contact-section">
+            <div class="contact-card">
+                <i class="fab fa-discord"></i>
+                <h3>Discord Server</h3>
+                <p>Join our community server for support, updates, and discussions.</p>
+                <br>
+                <a href="https://discord.gg/RPkBHavyVN" target="_blank">
+                    <i class="fas fa-arrow-right"></i> Join Discord
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>Send us an email for detailed inquiries or support requests.</p>
+                <br>
+                <a href="mailto:support@xm3dx.com">
+                    <i class="fas fa-arrow-right"></i> Email Us
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-comments"></i>
+                <h3>Support Tickets</h3>
+                <p>Open a support ticket in our Discord server for quickest response.</p>
+                <br>
+                <a href="https://discord.gg/RPkBHavyVN" target="_blank">
+                    <i class="fas fa-arrow-right"></i> Create Ticket
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>Documentation</h3>
+                <p>Check our documentation and FAQs for common questions.</p>
+                <br>
+                <a href="/terms" target="_blank">
+                    <i class="fas fa-arrow-right"></i> View Docs
+                </a>
+            </div>
+        </div>
+
+        <div class="nav">
+            <a href="/">← Back Home</a>
+            <a href="/terms">Terms & Privacy</a>
+        </div>
+    </div>
+
+    <script>
+        // Fetch Discord status on page load
+        async function updateStatus() {
+            try {
+                const response = await fetch('/api/discord-status');
+                if (!response.ok) throw new Error('Failed to fetch status');
+                
+                const data = await response.json();
+                const statusDot = document.getElementById('statusDot');
+                const statusText = document.getElementById('statusText');
+                
+                // Remove loading spinner
+                statusDot.classList.remove('loading');
+                
+                // Set status class and text
+                statusDot.className = `status-dot ${data.status}`;
+                statusText.className = `status-text ${data.status}`;
+                
+                let statusLabel = data.status.charAt(0).toUpperCase() + data.status.slice(1);
+                statusText.textContent = `${statusLabel} ${data.activity ? '· ' + data.activity : ''}`;
+                
+            } catch (error) {
+                console.error('Error fetching status:', error);
+                const errorMsg = document.getElementById('errorMsg');
+                const statusDot = document.getElementById('statusDot');
+                const statusText = document.getElementById('statusText');
+                
+                statusDot.style.display = 'none';
+                statusText.textContent = 'Status unavailable';
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = '⚠️ Could not load Discord status. Please try again later.';
+            }
+        }
+
+        // Update status when page loads
+        updateStatus();
+        
+        // Refresh status every 30 seconds
+        setInterval(updateStatus, 30000);
+    </script>
+</body>
+</html>
